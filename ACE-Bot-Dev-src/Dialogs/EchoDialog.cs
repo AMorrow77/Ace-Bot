@@ -34,8 +34,8 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
           case "project":
               PromptDialog.Confirm(
                       context,
-                      AfterResetAsync,
-                      "",
+                      AfterProjectInput,
+                      "Enter Customer Name",
                       "Didn't get that!",
                       promptStyle: PromptStyle.Auto);
               break;
@@ -73,6 +73,10 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
                 await context.PostAsync("Did not reset count.");
             }
             context.Wait(MessageReceivedAsync);
+        }
+                public async Task AfterProjectInput(IDialogContext context, IAwaitable<string> argument)
+        {
+
         }
 
     }
