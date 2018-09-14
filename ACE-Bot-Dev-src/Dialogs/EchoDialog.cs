@@ -32,12 +32,10 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
                       promptStyle: PromptStyle.Auto);
               break;
           case "project":
-              PromptDialog.Confirm(
+              PromptDialog.Text(
                       context,
                       AfterProjectInput,
-                      "Enter Customer Name",
-                      "Didn't get that!",
-                      promptStyle: PromptStyle.Auto);
+                      "Enter Customer Name");
               break;
           default:
               Console.WriteLine("Default case");
@@ -74,8 +72,12 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
             }
             context.Wait(MessageReceivedAsync);
         }
-                public async Task AfterProjectInput(IDialogContext context, IAwaitable<string> argument)
+        public async Task AfterProjectInput(IDialogContext context, IAwaitable<string> result)
         {
+            var clientName = await result;
+            SPDataService dataService = new SPDataService();
+            
+
 
         }
 

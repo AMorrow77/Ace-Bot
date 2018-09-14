@@ -8,6 +8,9 @@ namespace Microsoft.SDK.SharePointServices.Samples
     {
         static void Main()
         {
+
+        }
+        void DataCall(string clientName){
             string siteUrl = "https://plusdemo01.sharepoint.com";
 
             ClientContext clientContext = new ClientContext(siteUrl);
@@ -24,7 +27,7 @@ namespace Microsoft.SDK.SharePointServices.Samples
 
             foreach (ListItem oListItem in collListItem)
             {
-                Console.WriteLine("ID: {0} \nTitle: {1} \nHours: {2}", oListItem.Id, oListItem["Title"], oListItem["Hours"]);
+                
             }
         }
     }
